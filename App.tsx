@@ -2,24 +2,9 @@ import React, {useState} from 'react';
 import {View, Text, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {
-  HomeScreenProps,
-  RootStackParamList,
-  LoginScreenProps,
-} from './interfaces/app';
+import {HomeScreenProps, RootStackParamList} from './interfaces/app';
 
-const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
-  const handleLogin = () => {
-    navigation.navigate('Home');
-  };
-
-  return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Login Screen</Text>
-      <Button title="Login" onPress={handleLogin} />
-    </View>
-  );
-};
+import Login from './pages/Login';
 
 const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
   return (
@@ -54,7 +39,11 @@ const App = (): React.JSX.Element => {
             <Stack.Screen name="Details" component={DetailsScreen} />
           </>
         ) : (
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{headerShown: false}}
+          />
         )}
       </Stack.Navigator>
     </NavigationContainer>
