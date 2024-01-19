@@ -2,6 +2,7 @@ import React from 'react';
 import {LoginScreenProps} from '../interfaces/app';
 import {Button, Text, View, ImageBackground, StyleSheet} from 'react-native';
 import {COLORS} from '../constants/Colors';
+import CustomButton from '../components/CustomButton';
 
 const Login: React.FC<LoginScreenProps> = ({navigation}): React.JSX.Element => {
   const handleLogin = () => {
@@ -22,9 +23,10 @@ const Login: React.FC<LoginScreenProps> = ({navigation}): React.JSX.Element => {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <Button
-            title="My Button"
-            onPress={() => console.log('Button pressed')}
+          <CustomButton
+            onPress={handleLogin}
+            color="white"
+            label="Continue With Google"
           />
         </View>
       </View>
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     justifyContent: 'flex-end',
     marginBottom: 16,
+    padding: 20,
   },
   mainContent: {
     flex: 1,

@@ -39,11 +39,14 @@ const App = (): React.JSX.Element => {
             <Stack.Screen name="Details" component={DetailsScreen} />
           </>
         ) : (
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{headerShown: false}}
-          />
+          <>
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen name="Home" component={HomeScreen} />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>
